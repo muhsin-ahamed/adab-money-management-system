@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Adab Monthly Payment Management Portal">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#b89e5f">
+  <title>ADAB</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;500;600;700&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-0:#0a0908;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-0);
+      overflow: hidden;
+    }
+  </style>
+  <script>
+    async function copyImageToClipboard(bytes, text) {
+      try {
+        const blob = new Blob([bytes], { type: 'image/png' });
+        const data = { 'image/png': blob };
+        if (text) {
+          data['text/plain'] = new Blob([text], { type: 'text/plain' });
+        }
+        const clipboardItem = new ClipboardItem(data);
+        await navigator.clipboard.write([clipboardItem]);
+        return true;
+      } catch (e) {
+        console.error('Copy to clipboard failed: ', e);
+        return false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
